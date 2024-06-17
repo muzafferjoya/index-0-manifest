@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: index
+  name: index
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: index
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: index
+    spec:
+      containers:
+      - image: muzafferjoya/flask:app-11
+        name: index
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: index-service
+  labels:
+    app: index-service
+spec:
+  type: NodePort
+  ports:
+  - nodePort: 30211
+    port: 80
+    targetPort: 80
+  selector:
+    app: index
