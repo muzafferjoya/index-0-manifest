@@ -18,7 +18,7 @@ spec:
         app: index
     spec:
       containers:
-      - image: muzafferjoya/index:app-5
+      - image: muzafferjoya/index:app-6
         name: index
         resources: {}
 status: {}
