@@ -30,9 +30,10 @@ metadata:
   labels:
     app: index-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
-  - nodePort: 30211
+  - protocol: TCP  
+  #- nodePort: 30211
     port: 80
     targetPort: 80
   selector:
